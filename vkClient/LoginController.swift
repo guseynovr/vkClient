@@ -16,12 +16,32 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        loginTextField.delegate = self
+        passwordTextField.delegate = self
     }
-    
     
     @IBAction func onLogInButtonPressed(_ sender: UIButton) {
         print("\"Log in\" button pressed")
     }
     
+    @IBAction func handleTap(_ sender: UITapGestureRecognizer) {
+        
+        //hiding keayboard
+        loginTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+}
+
+extension LoginController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.placeholder! == "Phone or email" {
+            passwordTextField.becomeFirstResponder()
+        } else {
+            passwordTextField.resignFirstResponder()
+        }
+        
+        return true
+    }
 }
 

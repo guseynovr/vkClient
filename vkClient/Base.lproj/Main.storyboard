@@ -59,7 +59,7 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouP-nN-jie">
                                                 <rect key="frame" x="157" y="219" width="100" height="40"/>
@@ -85,10 +85,11 @@
                                                 <rect key="frame" x="114" y="80" width="280" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="0.92954021692276001" green="0.93317705392837524" blue="0.94117838144302368" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="HTC-nr-x4E" firstAttribute="top" secondItem="9Ia-UQ-JeR" secondAttribute="top" id="7Jo-bh-Yvs"/>
                                             <constraint firstItem="ouP-nN-jie" firstAttribute="centerX" secondItem="9Ia-UQ-JeR" secondAttribute="centerX" id="GfT-49-fi1"/>
@@ -107,6 +108,9 @@
                                             <constraint firstItem="HTC-nr-x4E" firstAttribute="leading" secondItem="9Ia-UQ-JeR" secondAttribute="leading" id="uqS-IO-YK4"/>
                                             <constraint firstItem="2vK-vs-7ph" firstAttribute="bottom" secondItem="HXO-6M-uYr" secondAttribute="bottom" id="x04-hk-Or1"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Wbc-Cg-J3V" appends="YES" id="UcV-l5-yFU"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.92954021692276001" green="0.93317705392837524" blue="0.94117838144302368" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -135,6 +139,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Wbc-Cg-J3V">
+                    <connections>
+                        <action selector="handleTap:" destination="BYZ-38-t0r" id="ofT-2E-Ac2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
