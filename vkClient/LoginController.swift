@@ -34,16 +34,11 @@ class LoginController: UIViewController {
 
 extension LoginController: UITextFieldDelegate {
     
-    enum Identifier: Int {
-        case login = 1
-        case password = 2
-    }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        if textField.tag == Identifier.login.rawValue {
+        if textField === loginTextField {
             passwordTextField.becomeFirstResponder()
-        } else if textField.tag == Identifier.password.rawValue {
+        } else if textField === passwordTextField {
             passwordTextField.resignFirstResponder()
         }
         
