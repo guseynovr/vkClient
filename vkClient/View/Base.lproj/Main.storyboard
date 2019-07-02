@@ -10,6 +10,44 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="k2L-As-EUS">
+            <objects>
+                <tabBarController id="odH-93-VlO" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="O3w-UM-iCc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="1Wt-3T-ABi" kind="relationship" relationship="viewControllers" id="P2d-YM-oQs"/>
+                        <segue destination="XPy-99-7iH" kind="relationship" relationship="viewControllers" id="zZ4-MA-qmd"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X3i-QV-UQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877" y="21"/>
+        </scene>
+        <!--Groups-->
+        <scene sceneID="usA-eW-7eu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Groups" id="XPy-99-7iH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Groups" id="rGQ-Z4-sG4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7U-6c-nej" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1634" y="228"/>
+        </scene>
+        <!--Friends-->
+        <scene sceneID="gz8-Lv-O1n">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Friends" id="1Wt-3T-ABi" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Friends" id="9pq-1H-ORX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9f6-9g-ndJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1633" y="-172"/>
+        </scene>
         <!--Login Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -59,13 +97,13 @@
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ouP-nN-jie">
                                                 <rect key="frame" x="157" y="219" width="100" height="40"/>
                                                 <color key="backgroundColor" red="0.33081489800000002" green="0.45855361220000002" blue="0.64316081999999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="100" id="Bb6-uh-Rrk"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Bb6-uh-Rrk"/>
                                                     <constraint firstAttribute="height" constant="40" id="Rh5-Ku-AXo"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -79,6 +117,7 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="onLogInButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zEn-sq-iGK"/>
+                                                    <segue destination="odH-93-VlO" kind="show" identifier="loginSegue" id="tXt-W0-Rme"/>
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone or email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GU4-1z-JHZ">
@@ -92,6 +131,7 @@
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="HTC-nr-x4E" firstAttribute="top" secondItem="9Ia-UQ-JeR" secondAttribute="top" id="7Jo-bh-Yvs"/>
+                                            <constraint firstItem="T67-SV-6Su" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Ia-UQ-JeR" secondAttribute="leading" constant="20" id="Cc8-xo-qGP"/>
                                             <constraint firstItem="ouP-nN-jie" firstAttribute="centerX" secondItem="9Ia-UQ-JeR" secondAttribute="centerX" id="GfT-49-fi1"/>
                                             <constraint firstItem="2vK-vs-7ph" firstAttribute="leading" secondItem="HXO-6M-uYr" secondAttribute="trailing" constant="20" id="JWQ-tq-s9s"/>
                                             <constraint firstItem="GU4-1z-JHZ" firstAttribute="bottom" secondItem="T67-SV-6Su" secondAttribute="bottom" id="Jkh-yh-JY7"/>
@@ -100,6 +140,7 @@
                                             <constraint firstItem="GU4-1z-JHZ" firstAttribute="leading" secondItem="T67-SV-6Su" secondAttribute="trailing" constant="20" id="TXo-oe-7da"/>
                                             <constraint firstItem="HXO-6M-uYr" firstAttribute="leading" secondItem="9Ia-UQ-JeR" secondAttribute="leading" constant="20" id="W2i-3E-UZL"/>
                                             <constraint firstItem="GU4-1z-JHZ" firstAttribute="height" secondItem="T67-SV-6Su" secondAttribute="height" id="WJF-X4-HHO"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2vK-vs-7ph" secondAttribute="trailing" constant="20" id="YBz-bV-IbM"/>
                                             <constraint firstAttribute="trailing" secondItem="HTC-nr-x4E" secondAttribute="trailing" id="ebU-4L-rNF"/>
                                             <constraint firstItem="2vK-vs-7ph" firstAttribute="width" secondItem="GU4-1z-JHZ" secondAttribute="width" id="fcK-fG-fvL"/>
                                             <constraint firstItem="T67-SV-6Su" firstAttribute="top" secondItem="HTC-nr-x4E" secondAttribute="bottom" constant="30" id="mMb-5t-hk2"/>
@@ -136,15 +177,17 @@
                     <connections>
                         <outlet property="loginTextField" destination="GU4-1z-JHZ" id="DtO-BG-IrA"/>
                         <outlet property="passwordTextField" destination="2vK-vs-7ph" id="mce-39-IjY"/>
+                        <outlet property="scrollView" destination="lcL-0t-0cn" id="3HD-7O-wdL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Wbc-Cg-J3V">
                     <connections>
-                        <action selector="handleTap:" destination="BYZ-38-t0r" id="ofT-2E-Ac2"/>
+                        <action selector="onBackgroundTapped:" destination="BYZ-38-t0r" id="ofT-2E-Ac2"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="48" y="21"/>
         </scene>
     </scenes>
 </document>
