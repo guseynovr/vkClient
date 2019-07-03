@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4419CDDE22CB35B7001FEAAA /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4419CDDD22CB35B7001FEAAA /* FriendsController.swift */; };
+		4419CDE022CB3700001FEAAA /* GroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4419CDDF22CB3700001FEAAA /* GroupsController.swift */; };
+		4419CDE222CB4059001FEAAA /* FriendsPhotosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4419CDE122CB4059001FEAAA /* FriendsPhotosController.swift */; };
+		449575BE22CAA2C000B94D0C /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449575BD22CAA2C000B94D0C /* Friends.storyboard */; };
+		449575C022CAA2C900B94D0C /* Groups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449575BF22CAA2C900B94D0C /* Groups.storyboard */; };
+		44A6D53222CB463A003869AF /* GroupsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A6D53122CB463A003869AF /* GroupsSearchController.swift */; };
 		44D3E92922C65EFF003D8586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3E92822C65EFF003D8586 /* AppDelegate.swift */; };
 		44D3E92B22C65EFF003D8586 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3E92A22C65EFF003D8586 /* LoginController.swift */; };
 		44D3E92E22C65EFF003D8586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D3E92C22C65EFF003D8586 /* Main.storyboard */; };
@@ -15,13 +21,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4419CDDD22CB35B7001FEAAA /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
+		4419CDDF22CB3700001FEAAA /* GroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsController.swift; sourceTree = "<group>"; };
+		4419CDE122CB4059001FEAAA /* FriendsPhotosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotosController.swift; sourceTree = "<group>"; };
+		449575BD22CAA2C000B94D0C /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
+		449575BF22CAA2C900B94D0C /* Groups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Groups.storyboard; sourceTree = "<group>"; };
+		44A6D53122CB463A003869AF /* GroupsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsSearchController.swift; sourceTree = "<group>"; };
 		44D3E92522C65EFF003D8586 /* vkClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D3E92822C65EFF003D8586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44D3E92A22C65EFF003D8586 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		44D3E92D22C65EFF003D8586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		44D3E92F22C65F03003D8586 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		44D3E92F22C65F03003D8586 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = vkClient/Assets.xcassets; sourceTree = "<group>"; };
 		44D3E93222C65F03003D8586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		44D3E93422C65F03003D8586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44D3E93422C65F03003D8586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = vkClient/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,10 +47,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4419CDE322CB4538001FEAAA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				44D3E92822C65EFF003D8586 /* AppDelegate.swift */,
+				44D3E92A22C65EFF003D8586 /* LoginController.swift */,
+				4419CDDD22CB35B7001FEAAA /* FriendsController.swift */,
+				4419CDE122CB4059001FEAAA /* FriendsPhotosController.swift */,
+				4419CDDF22CB3700001FEAAA /* GroupsController.swift */,
+				44A6D53122CB463A003869AF /* GroupsSearchController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		44A6D53322CB4645003869AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				44D3E92C22C65EFF003D8586 /* Main.storyboard */,
+				449575BD22CAA2C000B94D0C /* Friends.storyboard */,
+				449575BF22CAA2C900B94D0C /* Groups.storyboard */,
+				44D3E93122C65F03003D8586 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		44D3E91C22C65EFF003D8586 = {
 			isa = PBXGroup;
 			children = (
 				44D3E92722C65EFF003D8586 /* vkClient */,
+				44D3E92F22C65F03003D8586 /* Assets.xcassets */,
+				44D3E93422C65F03003D8586 /* Info.plist */,
 				44D3E92622C65EFF003D8586 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +92,8 @@
 		44D3E92722C65EFF003D8586 /* vkClient */ = {
 			isa = PBXGroup;
 			children = (
-				44D3E92822C65EFF003D8586 /* AppDelegate.swift */,
-				44D3E92A22C65EFF003D8586 /* LoginController.swift */,
-				44D3E92C22C65EFF003D8586 /* Main.storyboard */,
-				44D3E92F22C65F03003D8586 /* Assets.xcassets */,
-				44D3E93122C65F03003D8586 /* LaunchScreen.storyboard */,
-				44D3E93422C65F03003D8586 /* Info.plist */,
+				44A6D53322CB4645003869AF /* View */,
+				4419CDE322CB4538001FEAAA /* Controller */,
 			);
 			path = vkClient;
 			sourceTree = "<group>";
@@ -126,6 +160,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				449575C022CAA2C900B94D0C /* Groups.storyboard in Resources */,
+				449575BE22CAA2C000B94D0C /* Friends.storyboard in Resources */,
 				44D3E93322C65F03003D8586 /* LaunchScreen.storyboard in Resources */,
 				44D3E93022C65F03003D8586 /* Assets.xcassets in Resources */,
 				44D3E92E22C65EFF003D8586 /* Main.storyboard in Resources */,
@@ -140,7 +176,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				44D3E92B22C65EFF003D8586 /* LoginController.swift in Sources */,
+				44A6D53222CB463A003869AF /* GroupsSearchController.swift in Sources */,
+				4419CDE022CB3700001FEAAA /* GroupsController.swift in Sources */,
+				4419CDDE22CB35B7001FEAAA /* FriendsController.swift in Sources */,
 				44D3E92922C65EFF003D8586 /* AppDelegate.swift in Sources */,
+				4419CDE222CB4059001FEAAA /* FriendsPhotosController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
