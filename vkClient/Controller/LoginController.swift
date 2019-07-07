@@ -75,7 +75,7 @@ class LoginController: UIViewController {
     func isIdentityConfirmed() -> Bool {
         
         //TODO: Create real identity check implementation
-        return loginTextField.text == "admin" && passwordTextField.text == "123"
+        return loginTextField.text == "" && passwordTextField.text == ""
     }
 }
 
