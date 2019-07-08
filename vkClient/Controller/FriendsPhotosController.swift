@@ -17,6 +17,7 @@ class FriendsPhotosController: UICollectionViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: false)
+        tabBarController?.tabBar.isHidden = false
     }
     
     fileprivate func setupColectionViewItemSize() {
