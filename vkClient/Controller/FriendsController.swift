@@ -21,16 +21,15 @@ class FriendsController: UITableViewController {
     ]
     
     fileprivate let photos = [
-        ["batman1", "batman2", "batman3",
-        "batman4", "batman5", "batman6",
-        "batman7", "batman8", "batman9"],
+        ["batman1", "batman2", "batman3", "batman4",
+         "batman5", "batman6", "batman7", "batman8"],
         
         ["robin1", "robin2", "robin3", "robin4"],
         
         ["harley1", "harley2", "harley3"],
         
-        ["joker1", "joker2", "joker3",
-         "joker4", "joker5", "joker6"],
+        ["joker1", "joker2", "joker3", "joker4",
+         "joker5", "joker6"],
         
         ["lucy1", "lucy2", "lucy3", "lucy4"]
     ]
