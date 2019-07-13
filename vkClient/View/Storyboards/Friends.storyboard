@@ -14,44 +14,70 @@
         <scene sceneID="QmY-fD-OOx">
             <objects>
                 <tableViewController id="xCb-zP-yQK" customClass="FriendsController" customModule="vkClient" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WUH-pN-Lys">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WUH-pN-Lys">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="70" id="yEQ-4f-1fE" customClass="FriendCell" customModule="vkClient" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="71" id="yEQ-4f-1fE" customClass="FriendCell" customModule="vkClient" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yEQ-4f-1fE" id="ve1-vP-73X">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="B2i-3Y-J4X">
-                                            <rect key="frame" x="0.0" y="0.0" width="69.5" height="69.5"/>
+                                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3Z-80-GsF" customClass="AvatarView" customModule="vkClient" customModuleProvider="target">
+                                            <rect key="frame" x="5" y="5" width="60.5" height="60.5"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="249" verticalCompressionResistancePriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="B2i-3Y-J4X">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60.5" height="60.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="B2i-3Y-J4X" secondAttribute="height" multiplier="1:1" id="7ea-aR-3cP"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="B2i-3Y-J4X" secondAttribute="height" multiplier="1:1" id="7ea-aR-3cP"/>
-                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="HEm-9S-u94"/>
+                                                <constraint firstItem="B2i-3Y-J4X" firstAttribute="top" secondItem="X3Z-80-GsF" secondAttribute="top" id="FY8-kf-nt3"/>
+                                                <constraint firstAttribute="bottom" secondItem="B2i-3Y-J4X" secondAttribute="bottom" id="Gdz-5z-Hml"/>
+                                                <constraint firstItem="B2i-3Y-J4X" firstAttribute="leading" secondItem="X3Z-80-GsF" secondAttribute="leading" id="HpP-fJ-xhG"/>
+                                                <constraint firstAttribute="trailing" secondItem="B2i-3Y-J4X" secondAttribute="trailing" id="Sc2-5R-gza"/>
                                             </constraints>
-                                        </imageView>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <outlet property="imageView" destination="B2i-3Y-J4X" id="IG6-V9-zC1"/>
+                                            </connections>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zth-kE-fsR">
-                                            <rect key="frame" x="89.5" y="0.0" width="324.5" height="69.5"/>
+                                            <rect key="frame" x="85.5" y="0.0" width="328.5" height="70.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="B2i-3Y-J4X" secondAttribute="bottom" id="606-Pr-IA0"/>
-                                        <constraint firstItem="B2i-3Y-J4X" firstAttribute="top" secondItem="ve1-vP-73X" secondAttribute="top" id="6BC-0W-ePv"/>
-                                        <constraint firstItem="B2i-3Y-J4X" firstAttribute="leading" secondItem="ve1-vP-73X" secondAttribute="leading" id="BLc-oM-O9y"/>
-                                        <constraint firstItem="zth-kE-fsR" firstAttribute="leading" secondItem="B2i-3Y-J4X" secondAttribute="trailing" constant="20" id="Ya5-W9-unI"/>
+                                        <constraint firstItem="zth-kE-fsR" firstAttribute="leading" secondItem="X3Z-80-GsF" secondAttribute="trailing" constant="20" id="ITi-YR-SC6"/>
+                                        <constraint firstAttribute="bottom" secondItem="X3Z-80-GsF" secondAttribute="bottom" constant="5" id="Tvt-hi-2lE"/>
                                         <constraint firstAttribute="bottom" secondItem="zth-kE-fsR" secondAttribute="bottom" id="b1U-OM-jsr"/>
+                                        <constraint firstItem="X3Z-80-GsF" firstAttribute="leading" secondItem="ve1-vP-73X" secondAttribute="leading" constant="5" id="gcW-pS-ubG"/>
                                         <constraint firstAttribute="trailing" secondItem="zth-kE-fsR" secondAttribute="trailing" id="iGi-8r-oYW"/>
+                                        <constraint firstItem="X3Z-80-GsF" firstAttribute="top" secondItem="ve1-vP-73X" secondAttribute="top" constant="5" id="njR-kP-lAP"/>
                                         <constraint firstItem="zth-kE-fsR" firstAttribute="top" secondItem="ve1-vP-73X" secondAttribute="top" id="o5u-Hr-M5u"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="avatarImage" destination="B2i-3Y-J4X" id="2KE-SM-Xgt"/>
+                                    <outlet property="avatarView" destination="X3Z-80-GsF" id="68i-J1-9qC"/>
                                     <outlet property="nameLabel" destination="zth-kE-fsR" id="ZZr-T4-ALH"/>
                                     <segue destination="34l-w1-Nde" kind="show" identifier="showFriendsPhotos" id="KBG-Rf-rPa"/>
                                 </connections>
