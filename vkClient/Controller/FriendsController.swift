@@ -57,7 +57,8 @@ class FriendsController: UITableViewController {
         
         let friend = friends[indexPath.row]
         cell.nameLabel.text = "\(friend.firstName) \(friend.lastName)"
-        cell.avatarImage.image = UIImage(named: friend.avatarImageName)
+        cell.avatarView.imageView.image = UIImage(named: friend.avatarImageName)
+        cell.separatorInset = UIEdgeInsets(top: 0, left: cell.nameLabel.frame.minX, bottom: 0, right: 0)
         
         return cell
     }

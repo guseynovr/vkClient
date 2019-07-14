@@ -43,7 +43,9 @@ class GroupsController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") as! GroupCell
         
         cell.nameLabel.text = userGroups[indexPath.row].name
-        cell.avatarImage.image = UIImage(named: userGroups[indexPath.row].avatarImageName)
+        cell.avatarView.imageView.image = UIImage(named: userGroups[indexPath.row].avatarImageName)
+        cell.separatorInset = UIEdgeInsets(top: 0, left: cell.nameLabel.frame.minX, bottom: 0, right: 0)
+
         
         return cell
     }

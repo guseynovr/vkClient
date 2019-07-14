@@ -30,7 +30,9 @@ class GroupsSearchController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell") as! GroupCell
         
         cell.nameLabel.text = groups[indexPath.row].name
-        cell.avatarImage.image = UIImage(named: groups[indexPath.row].avatarImageName)
+        cell.avatarView.imageView.image = UIImage(named: groups[indexPath.row].avatarImageName)
+        cell.separatorInset = UIEdgeInsets(top: 0, left: cell.nameLabel.frame.minX, bottom: 0, right: 0)
+
         
         return cell
     }
