@@ -19,13 +19,16 @@ class AvatarView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        imageView.layer.cornerRadius = bounds.width / 2
         imageView.layer.masksToBounds = true
         
-        layer.cornerRadius = imageView.bounds.width / 2
         layer.shadowColor = shadowColor.cgColor
         layer.shadowOpacity = shadowOpacity
         layer.shadowRadius = shadowRadius
         layer.shadowOffset = .zero
+    }
+    
+    override func layoutSubviews() {
+        imageView.layer.cornerRadius = bounds.width / 2
+        layer.cornerRadius = imageView.bounds.width / 2
     }
 }
