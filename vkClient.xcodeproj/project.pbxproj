@@ -17,9 +17,11 @@
 		4482D20222DA48EF003E0778 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4482D20122DA48EF003E0778 /* AvatarView.swift */; };
 		449575BE22CAA2C000B94D0C /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449575BD22CAA2C000B94D0C /* Friends.storyboard */; };
 		449575C022CAA2C900B94D0C /* Groups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449575BF22CAA2C900B94D0C /* Groups.storyboard */; };
+		449B165622DC12340029A785 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449B165522DC12340029A785 /* LikeButton.swift */; };
 		449DBBFD22CFF4F800E5FD96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449DBBFC22CFF4F800E5FD96 /* User.swift */; };
 		449DBBFF22CFF4FF00E5FD96 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449DBBFE22CFF4FF00E5FD96 /* Group.swift */; };
 		44A6D53222CB463A003869AF /* GroupsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A6D53122CB463A003869AF /* GroupsSearchController.swift */; };
+		44BA069222DF29B900C3BF30 /* AlphabetNavigationControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BA069122DF29B900C3BF30 /* AlphabetNavigationControl.swift */; };
 		44D3E92922C65EFF003D8586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3E92822C65EFF003D8586 /* AppDelegate.swift */; };
 		44D3E92B22C65EFF003D8586 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3E92A22C65EFF003D8586 /* LoginController.swift */; };
 		44D3E92E22C65EFF003D8586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D3E92C22C65EFF003D8586 /* Main.storyboard */; };
@@ -38,9 +40,11 @@
 		4482D20122DA48EF003E0778 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		449575BD22CAA2C000B94D0C /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
 		449575BF22CAA2C900B94D0C /* Groups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Groups.storyboard; sourceTree = "<group>"; };
+		449B165522DC12340029A785 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		449DBBFC22CFF4F800E5FD96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		449DBBFE22CFF4FF00E5FD96 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		44A6D53122CB463A003869AF /* GroupsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsSearchController.swift; sourceTree = "<group>"; };
+		44BA069122DF29B900C3BF30 /* AlphabetNavigationControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetNavigationControl.swift; sourceTree = "<group>"; };
 		44D3E92522C65EFF003D8586 /* vkClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D3E92822C65EFF003D8586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44D3E92A22C65EFF003D8586 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -95,14 +99,32 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		449B165422DBC5A10029A785 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				4482D20122DA48EF003E0778 /* AvatarView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
 		44A6D53322CB4645003869AF /* View */ = {
 			isa = PBXGroup;
 			children = (
 				44462CDE22D1521E00F4C1AF /* Storyboards */,
 				44462CDF22D1522B00F4C1AF /* Cells */,
-				4482D20122DA48EF003E0778 /* AvatarView.swift */,
+				449B165422DBC5A10029A785 /* CustomViews */,
+				44BA069022DF293600C3BF30 /* CustomControls */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		44BA069022DF293600C3BF30 /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				449B165522DC12340029A785 /* LikeButton.swift */,
+				44BA069122DF29B900C3BF30 /* AlphabetNavigationControl.swift */,
+			);
+			path = CustomControls;
 			sourceTree = "<group>";
 		};
 		44D3E91C22C65EFF003D8586 = {
@@ -226,10 +248,12 @@
 				44462CDD22D144DF00F4C1AF /* GroupCell.swift in Sources */,
 				4482D20222DA48EF003E0778 /* AvatarView.swift in Sources */,
 				44D3E92B22C65EFF003D8586 /* LoginController.swift in Sources */,
+				449B165622DC12340029A785 /* LikeButton.swift in Sources */,
 				44A6D53222CB463A003869AF /* GroupsSearchController.swift in Sources */,
 				4419CDE022CB3700001FEAAA /* GroupsController.swift in Sources */,
 				449DBBFF22CFF4FF00E5FD96 /* Group.swift in Sources */,
 				4419CDDE22CB35B7001FEAAA /* FriendsController.swift in Sources */,
+				44BA069222DF29B900C3BF30 /* AlphabetNavigationControl.swift in Sources */,
 				44D3E92922C65EFF003D8586 /* AppDelegate.swift in Sources */,
 				4419CDE222CB4059001FEAAA /* FriendsPhotosController.swift in Sources */,
 				449DBBFD22CFF4F800E5FD96 /* User.swift in Sources */,

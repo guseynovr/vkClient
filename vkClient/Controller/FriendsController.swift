@@ -8,54 +8,59 @@
 
 import UIKit
 
-class FriendsController: UITableViewController {
+class FriendsController: UIViewController {
     
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var alphabetNavigationControl: AlphabetNavigationControl!
     
     //TODO: delete demo, load actual data
-    fileprivate let friends = [
-        User(id: 1, firstName: "Bruce", lastName: "Wayne", avatarImageName: "batman-avatar"),
-        User(id: 2, firstName: "Jason", lastName: "Todd", avatarImageName: "robin-avatar"),
-        User(id: 3, firstName: "Harley", lastName: "Quinn", avatarImageName: "harley-avatar"),
-        User(id: 4, firstName: "Jack", lastName: "Napier", avatarImageName: "joker-avatar"),
-        User(id: 5, firstName: "Lucy", lastName: "Wyldstyle", avatarImageName: "lucy-avatar")
-    ]
+    fileprivate var friends = User.getFriends()
+    fileprivate var friendsGrouped: [Character: [User]] = [:]
+    fileprivate var characters = [Character]()
     
-    fileprivate let photos = [
-        ["batman1", "batman2", "batman3", "batman4",
-         "batman5", "batman6", "batman7", "batman8"],
+    override func viewDidLoad() {
+        friends.sort { $0.firstName < $1.firstName }
+        for friend in friends {
+            guard let firstLetterRaw = friend.firstName.first else { continue }
+            let firstLetter = Character(firstLetterRaw.uppercased())
+            
+            if friendsGrouped.keys.contains(firstLetter) {
+                friendsGrouped[firstLetter]?.append(friend)
+            } else {
+                friendsGrouped[firstLetter] = [friend]
+            }
+        }
+        characters = friendsGrouped.keys.sorted()
         
-        ["robin1", "robin2", "robin3", "robin4"],
-        
-        ["harley1", "harley2", "harley3"],
-        
-        ["joker1", "joker2", "joker3", "joker4",
-         "joker5", "joker6"],
-        
-        ["lucy1", "lucy2", "lucy3", "lucy4"]
-    ]
+        alphabetNavigationControl.setupAlphabetButtons(for: friends)
+        alphabetNavigationControl.tableView = tableView
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let destinationVC = segue.destination as? FriendsPhotosController,
             let indexPath = tableView.indexPathForSelectedRow else { return }
 
-        destinationVC.photosNames = photos[indexPath.row]
+        guard let friendsForThisSection = friendsGrouped[characters[indexPath.section]] else { return }
+        destinationVC.photosNames = friendsForThisSection[indexPath.row].photos
+    }
+}
+
+extension FriendsController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return friendsGrouped.keys.count
     }
     
-    
-     // MARK: TableViewDataSource methods
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell") as! FriendCell
         
-        let friend = friends[indexPath.row]
+        guard let friendsForThisSection = friendsGrouped[characters[indexPath.section]] else { return FriendCell() }
+        let friend = friendsForThisSection[indexPath.row]
         cell.nameLabel.text = "\(friend.firstName) \(friend.lastName)"
         cell.avatarView.imageView.image = UIImage(named: friend.avatarImageName)
         cell.separatorInset = UIEdgeInsets(top: 0, left: cell.nameLabel.frame.minX, bottom: 0, right: 0)
@@ -63,14 +68,21 @@ class FriendsController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return friendsGrouped[characters[section]]?.count ?? 0
     }
     
-    // MARK: TableViewDelegate methods
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UILabel()
+        header.text = "    \(characters[section])"
+        header.backgroundColor = #colorLiteral(red: 0.9214878678, green: 0.9216204286, blue: 0.9214589, alpha: 1)
+        return header
+    }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+}
+
+extension FriendsController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }
