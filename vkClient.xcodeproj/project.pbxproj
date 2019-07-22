@@ -21,12 +21,12 @@
 		449DBBFD22CFF4F800E5FD96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449DBBFC22CFF4F800E5FD96 /* User.swift */; };
 		449DBBFF22CFF4FF00E5FD96 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449DBBFE22CFF4FF00E5FD96 /* Group.swift */; };
 		44A6D53222CB463A003869AF /* GroupsSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A6D53122CB463A003869AF /* GroupsSearchController.swift */; };
+		44BA069222DF29B900C3BF30 /* AlphabetNavigationControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BA069122DF29B900C3BF30 /* AlphabetNavigationControl.swift */; };
 		44D3E92922C65EFF003D8586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3E92822C65EFF003D8586 /* AppDelegate.swift */; };
 		44D3E92B22C65EFF003D8586 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3E92A22C65EFF003D8586 /* LoginController.swift */; };
 		44D3E92E22C65EFF003D8586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D3E92C22C65EFF003D8586 /* Main.storyboard */; };
 		44D3E93022C65F03003D8586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D3E92F22C65F03003D8586 /* Assets.xcassets */; };
 		44D3E93322C65F03003D8586 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D3E93122C65F03003D8586 /* LaunchScreen.storyboard */; };
-		44DDF00122DCA91F0000A44E /* AlphabetNavigationControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DDF00022DCA91F0000A44E /* AlphabetNavigationControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +44,7 @@
 		449DBBFC22CFF4F800E5FD96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		449DBBFE22CFF4FF00E5FD96 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		44A6D53122CB463A003869AF /* GroupsSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsSearchController.swift; sourceTree = "<group>"; };
+		44BA069122DF29B900C3BF30 /* AlphabetNavigationControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetNavigationControl.swift; sourceTree = "<group>"; };
 		44D3E92522C65EFF003D8586 /* vkClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D3E92822C65EFF003D8586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44D3E92A22C65EFF003D8586 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -51,7 +52,6 @@
 		44D3E92F22C65F03003D8586 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = vkClient/Assets.xcassets; sourceTree = "<group>"; };
 		44D3E93222C65F03003D8586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44D3E93422C65F03003D8586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = vkClient/Info.plist; sourceTree = "<group>"; };
-		44DDF00022DCA91F0000A44E /* AlphabetNavigationControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AlphabetNavigationControl.swift; path = vkClient/View/CustomViews/AlphabetNavigationControl.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				4482D20122DA48EF003E0778 /* AvatarView.swift */,
-				449B165522DC12340029A785 /* LikeButton.swift */,
-				44DDF00022DCA91F0000A44E /* AlphabetNavigationControl.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -115,8 +113,18 @@
 				44462CDE22D1521E00F4C1AF /* Storyboards */,
 				44462CDF22D1522B00F4C1AF /* Cells */,
 				449B165422DBC5A10029A785 /* CustomViews */,
+				44BA069022DF293600C3BF30 /* CustomControls */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		44BA069022DF293600C3BF30 /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				449B165522DC12340029A785 /* LikeButton.swift */,
+				44BA069122DF29B900C3BF30 /* AlphabetNavigationControl.swift */,
+			);
+			path = CustomControls;
 			sourceTree = "<group>";
 		};
 		44D3E91C22C65EFF003D8586 = {
@@ -243,9 +251,9 @@
 				449B165622DC12340029A785 /* LikeButton.swift in Sources */,
 				44A6D53222CB463A003869AF /* GroupsSearchController.swift in Sources */,
 				4419CDE022CB3700001FEAAA /* GroupsController.swift in Sources */,
-				44DDF00122DCA91F0000A44E /* AlphabetNavigationControl.swift in Sources */,
 				449DBBFF22CFF4FF00E5FD96 /* Group.swift in Sources */,
 				4419CDDE22CB35B7001FEAAA /* FriendsController.swift in Sources */,
+				44BA069222DF29B900C3BF30 /* AlphabetNavigationControl.swift in Sources */,
 				44D3E92922C65EFF003D8586 /* AppDelegate.swift in Sources */,
 				4419CDE222CB4059001FEAAA /* FriendsPhotosController.swift in Sources */,
 				449DBBFD22CFF4F800E5FD96 /* User.swift in Sources */,

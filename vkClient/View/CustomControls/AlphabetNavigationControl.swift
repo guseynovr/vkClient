@@ -33,7 +33,6 @@ class AlphabetNavigationControl: UIStackView {
     }
     
     func setupAlphabetButtons(for users: [User]) {
-        
         friends = users
         prepareArrayOfLetters(for: users)
         setupButtons()
@@ -70,16 +69,14 @@ class AlphabetNavigationControl: UIStackView {
         var index: Int?
         for i in 0..<friends.count {
             guard let first = friends[i].firstName.first else { continue }
-            
             if String(first) == letter {
                 index = i
                 break
             }
         }
-        
+        #warning("fix scrolling considering sections")
         guard let row = index else { return }
         let indexPath = IndexPath(row: row, section: tableView.numberOfSections - 1)
-        
         tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
 }
