@@ -25,13 +25,9 @@ class ViewPhotoController: UIViewController {
     @IBAction func zoomPhoto(_ sender: Any) {
         switch imageView.contentMode {
         case .scaleAspectFit:
-            imageView.contentMode = .scaleAspectFill
-            #warning("No animation")
-//            UIImageView.animate(withDuration: 2) {
-//                self.imageView.contentMode = .scaleAspectFill
-//            }
+            UIView.transition(with: imageView, duration: 0.15, options: [.curveLinear,.transitionCrossDissolve], animations: {self.imageView.contentMode = .scaleAspectFill}, completion: nil)
         case .scaleAspectFill:
-            imageView.contentMode = .scaleAspectFit
+            UIView.transition(with: imageView, duration: 0.15, options: [.curveLinear,.transitionCrossDissolve], animations: {self.imageView.contentMode = .scaleAspectFit}, completion: nil)
         default:
             preconditionFailure("Incorrect contentMode for ImageView")
         }

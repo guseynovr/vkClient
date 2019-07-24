@@ -12,8 +12,8 @@ class AlphabetNavigationControl: UIStackView {
     
     private var letters = [Character]()
     private var buttons = [UIButton]()
-    var tableView: UITableView!
-    var friends: [User]!
+    var friends: [User]! { didSet { setupAlphabetButtons(for: friends)} }
+    var delegate: AlphabetNavigationControlDelegate!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +33,6 @@ class AlphabetNavigationControl: UIStackView {
     }
     
     func setupAlphabetButtons(for users: [User]) {
-        friends = users
         prepareArrayOfLetters(for: users)
         setupButtons()
     }
@@ -62,21 +61,11 @@ class AlphabetNavigationControl: UIStackView {
         }
     }
     
-    @objc private func onLetterTapped(_ sender: UIButton) {
-        guard tableView != nil else { fatalError("did not assign tableView") }
-        guard let letter = sender.title(for: .normal) else { return }
-        
-        var index: Int?
-        for i in 0..<friends.count {
-            guard let first = friends[i].firstName.first else { continue }
-            if String(first) == letter {
-                index = i
-                break
-            }
-        }
-        #warning("fix scrolling considering sections")
-        guard let row = index else { return }
-        let indexPath = IndexPath(row: row, section: tableView.numberOfSections - 1)
-        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+    @objc func onLetterTapped(_ sender: UIButton) {
+        delegate.onLetterTapped(sender)
     }
+}
+
+protocol AlphabetNavigationControlDelegate {
+    func onLetterTapped(_ sender: UIButton)
 }

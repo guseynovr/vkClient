@@ -18,14 +18,16 @@ class FriendsController: UIViewController {
     fileprivate var friendsGrouped: [Character: [User]] = [:]
     fileprivate var characters = [Character]()
     fileprivate var friendsFiltered = [User]()
-    fileprivate var isSearchActive = false
+    fileprivate var isSearchActive = false {
+        didSet { alphabetNavigationControl.isHidden = isSearchActive ? true : false }
+    }
     
     override func viewDidLoad() {
         friends.sort { $0.firstName < $1.firstName }
         groupFriends()
         
+        alphabetNavigationControl.delegate = self
         alphabetNavigationControl.setupAlphabetButtons(for: friends)
-        alphabetNavigationControl.tableView = tableView
     }
     
     private func groupFriends() {
@@ -157,5 +159,16 @@ extension FriendsController: UISearchBarDelegate {
         searchBar.setShowsCancelButton(false, animated: true)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         tableView.reloadData()
+    }
+
+}
+
+extension FriendsController: AlphabetNavigationControlDelegate {
+    func onLetterTapped(_ sender: UIButton) {
+        guard let letter = sender.title(for: .normal) else { preconditionFailure("There is no title for button \(sender)") }
+        guard friendsGrouped.keys.contains(Character(letter)) else { preconditionFailure("Wrong grouping of friends") }
+
+        let sectionIndex: Int = friendsGrouped.keys.sorted().firstIndex(of: Character(letter))!
+        tableView.scrollToRow(at: IndexPath(row: 0, section: sectionIndex), at: .top, animated: true)
     }
 }
