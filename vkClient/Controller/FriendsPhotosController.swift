@@ -81,6 +81,5 @@ class FriendsPhotosController: UICollectionViewController {
             
             destinationVC.imageAssetName = photosNames[selectedRow]
         }
-        
     }
 }

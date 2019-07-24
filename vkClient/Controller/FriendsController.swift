@@ -144,9 +144,10 @@ extension FriendsController: UISearchBarDelegate {
         tableView.reloadData()
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         searchBar.setShowsCancelButton(true, animated: true)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        return true
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
