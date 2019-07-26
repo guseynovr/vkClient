@@ -9,9 +9,14 @@
 import UIKit
 
 class NewsCell: UITableViewCell {
-    @IBOutlet weak var headerStackView: UIStackView!
+    
+    
+    @IBOutlet weak var avatarView: AvatarView!
+    @IBOutlet weak var authorNameLabel: UILabel!
     @IBOutlet weak var contentStackView: UIStackView!
-    @IBOutlet weak var footerStackView: UIStackView!
+    @IBOutlet weak var likeButton: LikeButton!
+    @IBOutlet weak var commentButton: CommentButton!
+    @IBOutlet weak var shareButton: ShareButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

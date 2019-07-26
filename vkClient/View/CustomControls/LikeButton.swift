@@ -10,9 +10,12 @@ import UIKit
 
 class LikeButton: UIButton {
     
-    var isLiked = false { didSet { updateCount(); updateAppearance(); } }
+    var isLiked = false { didSet { updateCount() } }
     
-    var likeCount: Int = 0 ;#warning("3 digit numbers don't fit")
+    var likeCount: Int = 0 {
+        didSet { updateAppearance() }
+    }
+    #warning("3 digit numbers don't fit")
     
     
     override init(frame: CGRect) { super.init(frame: frame); setupButton() }

@@ -16,7 +16,6 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         loginTextField.delegate = self
         passwordTextField.delegate = self
     }

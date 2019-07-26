@@ -67,7 +67,11 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
+                                                        <outlet property="bottomConstraint" destination="Gaj-Vs-N28" id="FTu-vb-yHE"/>
                                                         <outlet property="imageView" destination="vGB-4U-HPt" id="QTC-4t-aWv"/>
+                                                        <outlet property="leadingConstraint" destination="YPJ-C6-hTJ" id="EnS-73-1KU"/>
+                                                        <outlet property="topConstraint" destination="gUn-bO-DxF" id="1Bk-ue-yu3"/>
+                                                        <outlet property="trailingConstraint" destination="obt-SW-3lE" id="EKM-zw-krE"/>
                                                     </connections>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SS2-Na-HBj">
@@ -222,20 +226,30 @@
                                 <rect key="frame" x="16" y="820" width="54" height="34"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wiB-Hg-atS" customClass="LoadingIndicator" customModule="vkClient" customModuleProvider="target">
+                                <rect key="frame" x="172" y="428" width="70" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="3GJ-t9-GZC"/>
+                                    <constraint firstAttribute="height" constant="40" id="QQ6-q7-Zji"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="wiB-Hg-atS" firstAttribute="centerX" secondItem="nlj-1k-Nis" secondAttribute="centerX" id="5RL-6l-ijs"/>
                             <constraint firstItem="YXh-Rj-WSd" firstAttribute="bottom" secondItem="W9f-7j-jsL" secondAttribute="bottom" id="8t7-lO-4mh"/>
                             <constraint firstItem="YXh-Rj-WSd" firstAttribute="bottom" secondItem="EFF-Fb-veZ" secondAttribute="bottom" constant="8" id="ImN-3o-1rv"/>
                             <constraint firstItem="W9f-7j-jsL" firstAttribute="leading" secondItem="YXh-Rj-WSd" secondAttribute="leading" id="JSC-Bd-MUD"/>
                             <constraint firstItem="W9f-7j-jsL" firstAttribute="top" secondItem="YXh-Rj-WSd" secondAttribute="top" id="U9q-eF-7Ah"/>
                             <constraint firstItem="W9f-7j-jsL" firstAttribute="trailing" secondItem="YXh-Rj-WSd" secondAttribute="trailing" id="rNc-bx-IYV"/>
+                            <constraint firstItem="wiB-Hg-atS" firstAttribute="centerY" secondItem="nlj-1k-Nis" secondAttribute="centerY" id="tGx-cf-MtS"/>
                             <constraint firstItem="EFF-Fb-veZ" firstAttribute="leading" secondItem="YXh-Rj-WSd" secondAttribute="leading" constant="16" id="yVL-y4-pfr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YXh-Rj-WSd"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="W9f-7j-jsL" id="Wcw-eb-4cA"/>
+                        <outlet property="loadingIndicator" destination="wiB-Hg-atS" id="snt-eK-KvO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pu2-OY-ak9" userLabel="First Responder" sceneMemberID="firstResponder"/>
