@@ -8,64 +8,55 @@
 
 import UIKit
 
-class LikeControl: UIControl {
+class LikeControl: UIStackView {
     
     private var imageView: UIImageView!
     private var countLabel: UILabel!
     
-    var isLiked = false { didSet { updateCount() } }
+    private var isLiked = false { didSet { likeCount += isLiked ? 1 : -1 } }
+    var likeCount = 999 { didSet { updateAppearance() } }
     
-    var likeCount: Int = 0 {
-        didSet { updateAppearance() }
-    }
-    #warning("3 digit numbers don't fit")
+    override init(frame: CGRect) { super.init(frame: frame); setupControl() }
     
+    required init(coder: NSCoder) { super.init(coder: coder); setupControl() }
     
-    override init(frame: CGRect) { super.init(frame: frame); setupButton() }
-    
-    required init?(coder aDecoder: NSCoder) { super.init(coder: aDecoder); setupButton() }
-    
-    func setupButton() {
+    func setupControl() {
+        axis = .horizontal
+        alignment = .center
+        distribution = .fillEqually
+        
+        heightAnchor.constraint(equalToConstant: 28).isActive = true
+        
+        imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        countLabel = UILabel()
+        countLabel.font = .systemFont(ofSize: 15)
+
         updateAppearance()
         
-        backgroundColor = UIColor.white.withAlphaComponent(0.4)
-        layer.cornerRadius = 12
-        layer.masksToBounds = true
+        addArrangedSubview(imageView)
+        addArrangedSubview(countLabel)
         
-        addTarget(self, action: #selector(onButtonTapped), for: .touchUpInside)
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onLikeTapped)))
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        guard let imageView = imageView, let titleLabel = countLabel else { return }
-        
-        imageView.bounds.size = CGSize(width: 30, height: 30)
-        titleLabel.bounds.size = CGSize(width: 30, height: 30)
-        titleLabel.textAlignment = .center
-        
-//        contentEdgeInsets = UIEdgeInsets(top: -8, left: -8, bottom: -8, right: 4)
-    }
-    
-    private func updateAppearance() {
-        imageView.image = UIImage(named: isLiked ? "liked" : "not-liked")
-        
-//        UIView.animate(withDuration: 0.2) {
-//            self.setTitle("\(self.likeCount)", for: .normal)
-//            self.setTitleColor(self.isLiked ? .red : .black, for: .normal)
-//        }
-        
-        UIView.transition(with: self, duration: 0.2, options: .transitionFlipFromTop, animations: {
-            self.setTitle("\(self.likeCount)", for: .normal)
-            self.setTitleColor(self.isLiked ? .red : .black, for: .normal)
-        }, completion: nil)
-        
-    }
-    
-    private func updateCount() { likeCount += isLiked ? 1 : -1 }
-    
-    @objc func onButtonTapped() {
+    @objc func onLikeTapped() {
         isLiked.toggle()
     }
     
+    func updateAppearance() {
+        self.imageView.image = UIImage(named: self.isLiked ? "heart-filled" : "heart-empty")
+
+        UIView.transition(with: countLabel, duration: 0.2, options: .transitionFlipFromTop, animations: {
+            self.countLabel.text = self.countShortened()
+            self.countLabel.textColor = self.isLiked ? .red : .black
+        }, completion: nil)
+    }
+    
+    func countShortened() -> String {
+        guard likeCount >= 1000 else { return "\(likeCount)" }
+        
+        #warning("implement shortening")
+        return "\(likeCount)"
+    }
 }

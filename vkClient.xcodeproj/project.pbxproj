@@ -19,7 +19,7 @@
 		4482D20222DA48EF003E0778 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4482D20122DA48EF003E0778 /* AvatarView.swift */; };
 		449575BE22CAA2C000B94D0C /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449575BD22CAA2C000B94D0C /* Friends.storyboard */; };
 		449575C022CAA2C900B94D0C /* Groups.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 449575BF22CAA2C900B94D0C /* Groups.storyboard */; };
-		449B165622DC12340029A785 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449B165522DC12340029A785 /* LikeButton.swift */; };
+		449B165622DC12340029A785 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449B165522DC12340029A785 /* LikeControl.swift */; };
 		449DBBFD22CFF4F800E5FD96 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449DBBFC22CFF4F800E5FD96 /* User.swift */; };
 		449DBBFF22CFF4FF00E5FD96 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449DBBFE22CFF4FF00E5FD96 /* Group.swift */; };
 		449F478922E9148700B0FDF8 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449F478822E9148700B0FDF8 /* NewsController.swift */; };
@@ -31,7 +31,7 @@
 		44BA069222DF29B900C3BF30 /* AlphabetNavigationControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BA069122DF29B900C3BF30 /* AlphabetNavigationControl.swift */; };
 		44D3E92922C65EFF003D8586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3E92822C65EFF003D8586 /* AppDelegate.swift */; };
 		44D3E92B22C65EFF003D8586 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3E92A22C65EFF003D8586 /* LoginController.swift */; };
-		44D3E92E22C65EFF003D8586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D3E92C22C65EFF003D8586 /* Main.storyboard */; };
+		44D3E92E22C65EFF003D8586 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D3E92C22C65EFF003D8586 /* Login.storyboard */; };
 		44D3E93022C65F03003D8586 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D3E92F22C65F03003D8586 /* Assets.xcassets */; };
 		44D3E93322C65F03003D8586 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D3E93122C65F03003D8586 /* LaunchScreen.storyboard */; };
 		44F2FBF022EA54C400A25DF0 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F2FBEF22EA54C400A25DF0 /* LoadingIndicator.swift */; };
@@ -50,7 +50,7 @@
 		4482D20122DA48EF003E0778 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		449575BD22CAA2C000B94D0C /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
 		449575BF22CAA2C900B94D0C /* Groups.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Groups.storyboard; sourceTree = "<group>"; };
-		449B165522DC12340029A785 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
+		449B165522DC12340029A785 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		449DBBFC22CFF4F800E5FD96 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		449DBBFE22CFF4FF00E5FD96 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		449F478822E9148700B0FDF8 /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		44D3E92522C65EFF003D8586 /* vkClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D3E92822C65EFF003D8586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44D3E92A22C65EFF003D8586 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		44D3E92D22C65EFF003D8586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		44D3E92D22C65EFF003D8586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		44D3E92F22C65F03003D8586 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = vkClient/Assets.xcassets; sourceTree = "<group>"; };
 		44D3E93222C65F03003D8586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		44D3E93422C65F03003D8586 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = vkClient/Info.plist; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 		44462CDE22D1521E00F4C1AF /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				44D3E92C22C65EFF003D8586 /* Main.storyboard */,
+				44D3E92C22C65EFF003D8586 /* Login.storyboard */,
 				449575BD22CAA2C000B94D0C /* Friends.storyboard */,
 				449575BF22CAA2C900B94D0C /* Groups.storyboard */,
 				44B57DAB22E88B0B00B8C387 /* News.storyboard */,
@@ -152,8 +152,7 @@
 			children = (
 				446A340922E9F00000C44261 /* ShareButton.swift */,
 				446A340B22E9F23E00C44261 /* CommentButton.swift */,
-				449B165522DC12340029A785 /* LikeButton.swift */,
-				44B57DB422E8A48700B8C387 /* Post.swift */,
+				449B165522DC12340029A785 /* LikeControl.swift */,
 				44BA069122DF29B900C3BF30 /* AlphabetNavigationControl.swift */,
 			);
 			path = CustomControls;
@@ -191,6 +190,7 @@
 		44EE03BF22CFF48600029D16 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				44B57DB422E8A48700B8C387 /* Post.swift */,
 				449DBBFC22CFF4F800E5FD96 /* User.swift */,
 				449DBBFE22CFF4FF00E5FD96 /* Group.swift */,
 			);
@@ -265,7 +265,7 @@
 				449575BE22CAA2C000B94D0C /* Friends.storyboard in Resources */,
 				44D3E93322C65F03003D8586 /* LaunchScreen.storyboard in Resources */,
 				44D3E93022C65F03003D8586 /* Assets.xcassets in Resources */,
-				44D3E92E22C65EFF003D8586 /* Main.storyboard in Resources */,
+				44D3E92E22C65EFF003D8586 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +287,7 @@
 				449F478922E9148700B0FDF8 /* NewsController.swift in Sources */,
 				44D3E92B22C65EFF003D8586 /* LoginController.swift in Sources */,
 				44B57DB122E891A800B8C387 /* NewsCell.swift in Sources */,
-				449B165622DC12340029A785 /* LikeButton.swift in Sources */,
+				449B165622DC12340029A785 /* LikeControl.swift in Sources */,
 				44A6D53222CB463A003869AF /* GroupsSearchController.swift in Sources */,
 				4419CDE022CB3700001FEAAA /* GroupsController.swift in Sources */,
 				449DBBFF22CFF4FF00E5FD96 /* Group.swift in Sources */,
@@ -303,12 +303,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		44D3E92C22C65EFF003D8586 /* Main.storyboard */ = {
+		44D3E92C22C65EFF003D8586 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				44D3E92D22C65EFF003D8586 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		44D3E93122C65F03003D8586 /* LaunchScreen.storyboard */ = {

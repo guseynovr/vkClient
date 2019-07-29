@@ -31,14 +31,19 @@ extension NewsController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "newsCell") as! NewsCell
         
         let post = feed[indexPath.row]
-        if let photoName = post.photos?[0] {
-            cell.avatarView.imageView.image = UIImage(named: photoName)
-        }
-        cell.authorNameLabel.text = { return "123" }()
-        cell.likeButton.likeCount = post.likes
+        guard let photoName = post.photos?[0] else { return UITableViewCell() }
+        guard let avatarImage = UIImage(named: photoName) else { return UITableViewCell() }
+        cell.setFields(avatarViewImage: avatarImage,
+                       authorName: User.getFriends()[post.author_id].firstName,
+                       photos: post.photos,
+                       likeCount: post.likes,
+                       commentCount: post.comments,
+                       shareCount: post.shares)
         
         return cell
     }
+    
+    
 }
 
 extension NewsController: UITableViewDelegate {

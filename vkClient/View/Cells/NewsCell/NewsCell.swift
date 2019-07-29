@@ -9,12 +9,11 @@
 import UIKit
 
 class NewsCell: UITableViewCell {
-    
-    
+        
     @IBOutlet weak var avatarView: AvatarView!
     @IBOutlet weak var authorNameLabel: UILabel!
     @IBOutlet weak var contentStackView: UIStackView!
-    @IBOutlet weak var likeButton: LikeButton!
+    @IBOutlet weak var likeButton: LikeControl!
     @IBOutlet weak var commentButton: CommentButton!
     @IBOutlet weak var shareButton: ShareButton!
     
@@ -23,10 +22,15 @@ class NewsCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    func setFields(avatarViewImage: UIImage, authorName: String, photos: [String]?,likeCount: Int, commentCount: Int, shareCount: Int) {
+        
+        avatarView.imageView.image = avatarViewImage
+        authorNameLabel.text = authorName
+        
+        likeButton.likeCount = likeCount
+        commentButton.setTitle("\(likeCount)", for: .normal)
+        shareButton.setTitle("\(shareCount)"
+            , for: .normal)
     }
     
 }

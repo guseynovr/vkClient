@@ -13,17 +13,7 @@ class ViewPhotoController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var loadingIndicator: LoadingIndicator!
     
-    var isZoomed = false {
-        didSet {
-            UIView.animate(withDuration: 0.5) {
-                self.imageView.bounds = CGRect(
-                    x: self.imageView.bounds.origin.x,
-                    y: self.imageView.bounds.origin.y,
-                    width: self.isZoomed ? self.imageView.bounds.size.width * 1.7 : self.imageView.bounds.size.width / 1.7,
-                    height: self.isZoomed ? self.imageView.bounds.size.height * 1.7 : self.imageView.bounds.size.height / 1.7)
-            }
-        }
-    }
+    var isZoomed = false
 
     var imageAssetName: String!
 
@@ -39,5 +29,13 @@ class ViewPhotoController: UIViewController {
     
     @IBAction func zoomPhoto(_ sender: Any) {
         isZoomed.toggle()
+        
+        UIView.animate(withDuration: 0.5) {
+            if self.isZoomed {
+                self.imageView.transform = CGAffineTransform(scaleX: 1.7, y: 1.7)
+            } else {
+                self.imageView.transform = .identity
+            }
+        }
     }
 }

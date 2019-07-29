@@ -12,7 +12,7 @@ class LoadingIndicator: UIStackView {
 
     var circles = [UIView(), UIView(), UIView()]
     
-    var width: CGFloat!// = { frame.width / 3 }()
+    var width: CGFloat!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -53,8 +53,11 @@ class LoadingIndicator: UIStackView {
     
     fileprivate func setupAnimation() {
         for i in 0..<circles.count {
-            UIView.animate(withDuration: 0.6, delay: TimeInterval(0.2 * (Double(i) + 1)), options: [.repeat, .autoreverse], animations: {
-                self.circles[i].alpha = 0.3
+            UIView.animate(withDuration: 0.6,
+                           delay: TimeInterval(0.2 * (Double(i) + 1)),
+                           options: [.repeat, .autoreverse],
+                           animations: {
+                            self.circles[i].alpha = 0.3
             })
         }
     }
