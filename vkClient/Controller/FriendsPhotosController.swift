@@ -16,6 +16,7 @@ class FriendsPhotosController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.setNavigationBarHidden(false, animated: true)
         tabBarController?.tabBar.isHidden = false
     }
     
@@ -80,6 +81,5 @@ class FriendsPhotosController: UICollectionViewController {
             
             destinationVC.imageAssetName = photosNames[selectedRow]
         }
-        
     }
 }

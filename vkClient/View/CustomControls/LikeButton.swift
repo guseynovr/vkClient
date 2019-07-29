@@ -12,9 +12,8 @@ class LikeButton: UIButton {
     
     var isLiked = false { didSet { updateCount(); updateAppearance(); } }
     
-    //TODO: add loading/uploading count from servers
-    var likeCount: Int = 0
-    //FIXME: 3 digit numbers don't fit
+    var likeCount: Int = 0 ;#warning("3 digit numbers don't fit")
+    
     
     override init(frame: CGRect) { super.init(frame: frame); setupButton() }
     

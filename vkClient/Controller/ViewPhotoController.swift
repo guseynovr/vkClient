@@ -22,4 +22,18 @@ class ViewPhotoController: UIViewController {
         guard let image = UIImage(named: imageAssetName) else { return }
         imageView.image = image
     }
+    @IBAction func zoomPhoto(_ sender: Any) {
+        switch imageView.contentMode {
+        case .scaleAspectFit:
+            imageView.contentMode = .scaleAspectFill
+            #warning("No animation")
+//            UIImageView.animate(withDuration: 2) {
+//                self.imageView.contentMode = .scaleAspectFill
+//            }
+        case .scaleAspectFill:
+            imageView.contentMode = .scaleAspectFit
+        default:
+            preconditionFailure("Incorrect contentMode for ImageView")
+        }
+    }
 }

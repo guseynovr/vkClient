@@ -22,6 +22,7 @@
                     <connections>
                         <segue destination="1Wt-3T-ABi" kind="relationship" relationship="viewControllers" id="P2d-YM-oQs"/>
                         <segue destination="XPy-99-7iH" kind="relationship" relationship="viewControllers" id="zZ4-MA-qmd"/>
+                        <segue destination="mjs-Ud-gtU" kind="relationship" relationship="viewControllers" id="I2u-3I-fzE"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3i-QV-UQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -32,21 +33,31 @@
         <scene sceneID="usA-eW-7eu">
             <objects>
                 <viewControllerPlaceholder storyboardName="Groups" id="XPy-99-7iH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Groups" id="rGQ-Z4-sG4"/>
+                    <tabBarItem key="tabBarItem" title="Groups" image="groups" id="rGQ-Z4-sG4"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q7U-6c-nej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1634" y="228"/>
+            <point key="canvasLocation" x="1600" y="21"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="BDb-CH-4Fc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="News" id="mjs-Ud-gtU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" image="news" id="aBI-kN-dMa"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jNO-84-WmA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1593" y="312"/>
         </scene>
         <!--Friends-->
         <scene sceneID="gz8-Lv-O1n">
             <objects>
                 <viewControllerPlaceholder storyboardName="Friends" id="1Wt-3T-ABi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" id="9pq-1H-ORX"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="friends" id="9pq-1H-ORX"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9f6-9g-ndJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1633" y="-172"/>
+            <point key="canvasLocation" x="1601" y="-271"/>
         </scene>
         <!--Login Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -189,4 +200,9 @@
             <point key="canvasLocation" x="48" y="21"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="friends" width="30" height="30"/>
+        <image name="groups" width="30" height="30"/>
+        <image name="news" width="30" height="30"/>
+    </resources>
 </document>

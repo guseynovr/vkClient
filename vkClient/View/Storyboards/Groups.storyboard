@@ -17,16 +17,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search" id="QGj-Py-42b">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="MoX-Cl-fJC" id="a4w-O0-kn7"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="70" id="jrU-qg-c0P" customClass="GroupCell" customModule="vkClient" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jrU-qg-c0P" id="IP2-mM-i6a">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Duy-bd-XvP" customClass="AvatarView" customModule="vkClient" customModuleProvider="target">
-                                            <rect key="frame" x="5" y="5" width="59.5" height="59.5"/>
+                                            <rect key="frame" x="10" y="5" width="59.5" height="59.5"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vts-Ty-3vW">
                                                     <rect key="frame" x="0.0" y="0.0" width="59.5" height="59.5"/>
@@ -47,7 +55,7 @@
                                                     <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                    <real key="value" value="5"/>
+                                                    <real key="value" value="3"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                     <real key="value" value="1"/>
@@ -58,7 +66,7 @@
                                             </connections>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="599-zw-NDM">
-                                            <rect key="frame" x="84.5" y="11" width="309.5" height="48"/>
+                                            <rect key="frame" x="79.5" y="11" width="314.5" height="48"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -68,10 +76,10 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="599-zw-NDM" secondAttribute="trailing" id="E72-Ta-Hjz"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="599-zw-NDM" secondAttribute="bottom" id="H6m-3q-3ox"/>
                                         <constraint firstItem="Duy-bd-XvP" firstAttribute="top" secondItem="IP2-mM-i6a" secondAttribute="top" constant="5" id="M2a-pm-goQ"/>
-                                        <constraint firstItem="599-zw-NDM" firstAttribute="leading" secondItem="Duy-bd-XvP" secondAttribute="trailing" constant="20" id="lsT-03-nZD"/>
+                                        <constraint firstItem="599-zw-NDM" firstAttribute="leading" secondItem="Duy-bd-XvP" secondAttribute="trailing" constant="10" id="lsT-03-nZD"/>
                                         <constraint firstItem="599-zw-NDM" firstAttribute="top" secondItem="IP2-mM-i6a" secondAttribute="topMargin" id="nL8-5S-HAq"/>
                                         <constraint firstAttribute="bottom" secondItem="Duy-bd-XvP" secondAttribute="bottom" constant="5" id="saT-j5-EvG"/>
-                                        <constraint firstItem="Duy-bd-XvP" firstAttribute="leading" secondItem="IP2-mM-i6a" secondAttribute="leading" constant="5" id="ywl-Ee-qw9"/>
+                                        <constraint firstItem="Duy-bd-XvP" firstAttribute="leading" secondItem="IP2-mM-i6a" secondAttribute="leading" constant="10" id="ywl-Ee-qw9"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -92,6 +100,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="QGj-Py-42b" id="uns-Wy-hl6"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czI-gt-57N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,16 +116,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search" id="E2g-cd-poM">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="vnq-ep-cit" id="ddf-sl-Uci"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="70" id="Oo9-2j-rGb" customClass="GroupCell" customModule="vkClient" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Oo9-2j-rGb" id="1IP-Uu-0zA">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gw-77-xOm" customClass="AvatarView" customModule="vkClient" customModuleProvider="target">
-                                            <rect key="frame" x="5" y="5" width="59.5" height="59.5"/>
+                                            <rect key="frame" x="10" y="5" width="59.5" height="59.5"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TsA-6Y-90E">
                                                     <rect key="frame" x="0.0" y="0.0" width="59.5" height="59.5"/>
@@ -135,7 +154,7 @@
                                                     <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                                    <real key="value" value="5"/>
+                                                    <real key="value" value="3"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                                     <real key="value" value="1"/>
@@ -146,7 +165,7 @@
                                             </connections>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJt-8k-Zpm">
-                                            <rect key="frame" x="84.5" y="11" width="309.5" height="48"/>
+                                            <rect key="frame" x="79.5" y="11" width="314.5" height="48"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -154,12 +173,12 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="7gw-77-xOm" firstAttribute="top" secondItem="1IP-Uu-0zA" secondAttribute="top" constant="5" id="2fI-r7-LmU"/>
-                                        <constraint firstItem="7gw-77-xOm" firstAttribute="leading" secondItem="1IP-Uu-0zA" secondAttribute="leading" constant="5" id="Dpv-3o-O5t"/>
+                                        <constraint firstItem="7gw-77-xOm" firstAttribute="leading" secondItem="1IP-Uu-0zA" secondAttribute="leading" constant="10" id="Dpv-3o-O5t"/>
                                         <constraint firstItem="QJt-8k-Zpm" firstAttribute="bottom" secondItem="1IP-Uu-0zA" secondAttribute="bottomMargin" id="Ik2-1m-cf9"/>
                                         <constraint firstItem="QJt-8k-Zpm" firstAttribute="top" secondItem="1IP-Uu-0zA" secondAttribute="topMargin" id="LGE-Q8-4bq"/>
                                         <constraint firstAttribute="bottom" secondItem="7gw-77-xOm" secondAttribute="bottom" constant="5" id="aCt-xX-lbi"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="QJt-8k-Zpm" secondAttribute="trailing" id="hdX-4f-TYp"/>
-                                        <constraint firstItem="QJt-8k-Zpm" firstAttribute="leading" secondItem="7gw-77-xOm" secondAttribute="trailing" constant="20" id="xqJ-li-YwC"/>
+                                        <constraint firstItem="QJt-8k-Zpm" firstAttribute="leading" secondItem="7gw-77-xOm" secondAttribute="trailing" constant="10" id="xqJ-li-YwC"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -174,6 +193,9 @@
                             <outlet property="delegate" destination="vnq-ep-cit" id="PWK-90-hu3"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="searchBar" destination="E2g-cd-poM" id="fia-Ai-FHR"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sNa-fS-dUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hVx-O8-cSM" userLabel="Exit" sceneMemberID="exit"/>
