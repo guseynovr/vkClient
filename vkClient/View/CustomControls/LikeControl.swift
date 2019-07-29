@@ -8,7 +8,10 @@
 
 import UIKit
 
-class LikeButton: UIButton {
+class LikeControl: UIControl {
+    
+    private var imageView: UIImageView!
+    private var countLabel: UILabel!
     
     var isLiked = false { didSet { updateCount() } }
     
@@ -35,20 +38,28 @@ class LikeButton: UIButton {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        guard let imageView = imageView, let titleLabel = titleLabel else { return }
+        guard let imageView = imageView, let titleLabel = countLabel else { return }
         
         imageView.bounds.size = CGSize(width: 30, height: 30)
         titleLabel.bounds.size = CGSize(width: 30, height: 30)
         titleLabel.textAlignment = .center
         
-        contentEdgeInsets = UIEdgeInsets(top: -8, left: -8, bottom: -8, right: 4)
+//        contentEdgeInsets = UIEdgeInsets(top: -8, left: -8, bottom: -8, right: 4)
     }
     
     private func updateAppearance() {
-        setImage(UIImage(named: isLiked ? "liked" : "not-liked"), for: .normal)
+        imageView.image = UIImage(named: isLiked ? "liked" : "not-liked")
         
-        setTitle("\(likeCount)", for: .normal)
-        setTitleColor(isLiked ? .red : .black, for: .normal)
+//        UIView.animate(withDuration: 0.2) {
+//            self.setTitle("\(self.likeCount)", for: .normal)
+//            self.setTitleColor(self.isLiked ? .red : .black, for: .normal)
+//        }
+        
+        UIView.transition(with: self, duration: 0.2, options: .transitionFlipFromTop, animations: {
+            self.setTitle("\(self.likeCount)", for: .normal)
+            self.setTitleColor(self.isLiked ? .red : .black, for: .normal)
+        }, completion: nil)
+        
     }
     
     private func updateCount() { likeCount += isLiked ? 1 : -1 }
