@@ -216,8 +216,8 @@
                                     <outletCollection property="gestureRecognizers" destination="2uf-Up-zoy" appends="YES" id="ACg-5H-6iC"/>
                                 </connections>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wiB-Hg-atS" customClass="LoadingIndicator" customModule="vkClient" customModuleProvider="target">
-                                <rect key="frame" x="172" y="428" width="70" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wiB-Hg-atS" customClass="LoadingIndicator" customModule="vkClient" customModuleProvider="target">
+                                <rect key="frame" x="384" y="351" width="70" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="3GJ-t9-GZC"/>
                                     <constraint firstAttribute="height" constant="40" id="QQ6-q7-Zji"/>
@@ -252,7 +252,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4315.9420289855079" y="-348.21428571428572"/>
+            <point key="canvasLocation" x="5014" y="-348"/>
         </scene>
     </scenes>
     <resources>

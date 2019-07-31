@@ -13,9 +13,13 @@ class ViewPhotoController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var loadingIndicator: LoadingIndicator!
     
+    var imageViewLeft = UIImageView()
+    var imageViewRight = UIImageView()
+    
     var isZoomed = false
 
-    var imageAssetName: String!
+    var selectedImageId: Int!
+    var userPhotosNames: [String]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,8 +27,24 @@ class ViewPhotoController: UIViewController {
         view.bringSubviewToFront(loadingIndicator)
         tabBarController?.tabBar.isHidden = true
         
-        guard let image = UIImage(named: imageAssetName) else { return }
+        setImages()
+        
+        view.addSubview(imageViewLeft)
+        view.addSubview(imageViewRight)
+    }
+    
+    fileprivate func setImages() {
+        guard let image = UIImage(named: userPhotosNames[selectedImageId]) else {
+            preconditionFailure("wrong image asset name")
+        }
         imageView.image = image
+        
+        if userPhotosNames.indices.contains(selectedImageId - 1) {
+            imageViewLeft.image = UIImage(named: userPhotosNames[selectedImageId - 1])
+        }
+        if userPhotosNames.indices.contains(selectedImageId + 1) {
+            imageViewRight.image = UIImage(named: userPhotosNames[selectedImageId + 1])
+        }
     }
     
     @IBAction func zoomPhoto(_ sender: Any) {

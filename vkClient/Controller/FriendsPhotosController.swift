@@ -79,7 +79,8 @@ class FriendsPhotosController: UICollectionViewController {
             guard collectionView.indexPathsForSelectedItems?.count == 1 else { return }
             let selectedRow = collectionView.indexPathsForSelectedItems![0].row
             
-            destinationVC.imageAssetName = photosNames[selectedRow]
+            destinationVC.selectedImageId = selectedRow
+            destinationVC.userPhotosNames = photosNames
         }
     }
 }
