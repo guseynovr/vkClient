@@ -17,6 +17,11 @@ class FriendsPhotosController: UICollectionViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         tabBarController?.tabBar.isHidden = false
     }
     
