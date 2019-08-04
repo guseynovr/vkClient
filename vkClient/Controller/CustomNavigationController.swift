@@ -23,6 +23,42 @@ class CustomNavigationController: UINavigationController {
 
         delegate = self
         transitioningDelegate = self
+        
+        let edgePanGR = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        edgePanGR.edges = .left
+        view.addGestureRecognizer(edgePanGR)
+    }
+    
+    @objc func handlePanGesture(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            interactiveTransition.hasStarted = true
+            self.popViewController(animated: true)
+            
+        case .changed:
+            guard let width = recognizer.view?.bounds.width else {
+                interactiveTransition.hasStarted = false
+                interactiveTransition.cancel()
+                return
+            }
+            let translation = recognizer.translation(in: recognizer.view)
+            let relativeTranslation = translation.x / width
+            let progress = max(0, min(1, relativeTranslation))
+            
+            interactiveTransition.update(progress)
+            interactiveTransition.shouldFinish = progress > 0.35
+            
+        case .ended:
+            interactiveTransition.hasStarted = false
+            interactiveTransition.shouldFinish ? interactiveTransition.finish() : interactiveTransition.cancel()
+            
+        case .cancelled:
+            interactiveTransition.hasStarted = false
+            interactiveTransition.cancel()
+            
+        default:
+            break
+        }
     }
     
     func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
