@@ -29,6 +29,8 @@
 		44B57DB222E891A800B8C387 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44B57DB022E891A800B8C387 /* NewsCell.xib */; };
 		44B57DB522E8A48700B8C387 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B57DB422E8A48700B8C387 /* Post.swift */; };
 		44BA069222DF29B900C3BF30 /* AlphabetNavigationControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BA069122DF29B900C3BF30 /* AlphabetNavigationControl.swift */; };
+		44D132EF22F6690F00EE9E44 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D132EE22F6690F00EE9E44 /* CustomNavigationController.swift */; };
+		44D132F122F66A2600EE9E44 /* RotationTransitioningAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D132F022F66A2600EE9E44 /* RotationTransitioningAnimator.swift */; };
 		44D3E92922C65EFF003D8586 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3E92822C65EFF003D8586 /* AppDelegate.swift */; };
 		44D3E92B22C65EFF003D8586 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D3E92A22C65EFF003D8586 /* LoginController.swift */; };
 		44D3E92E22C65EFF003D8586 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44D3E92C22C65EFF003D8586 /* Login.storyboard */; };
@@ -60,6 +62,8 @@
 		44B57DB022E891A800B8C387 /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		44B57DB422E8A48700B8C387 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		44BA069122DF29B900C3BF30 /* AlphabetNavigationControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlphabetNavigationControl.swift; sourceTree = "<group>"; };
+		44D132EE22F6690F00EE9E44 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		44D132F022F66A2600EE9E44 /* RotationTransitioningAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationTransitioningAnimator.swift; sourceTree = "<group>"; };
 		44D3E92522C65EFF003D8586 /* vkClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D3E92822C65EFF003D8586 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44D3E92A22C65EFF003D8586 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,7 @@
 			children = (
 				44D3E92A22C65EFF003D8586 /* LoginController.swift */,
 				4419CDDD22CB35B7001FEAAA /* FriendsController.swift */,
+				44D132EE22F6690F00EE9E44 /* CustomNavigationController.swift */,
 				4419CDE122CB4059001FEAAA /* FriendsPhotosController.swift */,
 				44709FDB22D36DFB000BA19B /* ViewPhotoController.swift */,
 				4419CDDF22CB3700001FEAAA /* GroupsController.swift */,
@@ -179,6 +184,7 @@
 		44D3E92722C65EFF003D8586 /* vkClient */ = {
 			isa = PBXGroup;
 			children = (
+				44D132F022F66A2600EE9E44 /* RotationTransitioningAnimator.swift */,
 				44D3E92822C65EFF003D8586 /* AppDelegate.swift */,
 				4419CDE322CB4538001FEAAA /* Controller */,
 				44A6D53322CB4645003869AF /* View */,
@@ -276,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44D132EF22F6690F00EE9E44 /* CustomNavigationController.swift in Sources */,
 				44F2FBF022EA54C400A25DF0 /* LoadingIndicator.swift in Sources */,
 				44462CD922D1446B00F4C1AF /* FriendPhotoCell.swift in Sources */,
 				446A340C22E9F23E00C44261 /* CommentButton.swift in Sources */,
@@ -289,6 +296,7 @@
 				44B57DB122E891A800B8C387 /* NewsCell.swift in Sources */,
 				449B165622DC12340029A785 /* LikeControl.swift in Sources */,
 				44A6D53222CB463A003869AF /* GroupsSearchController.swift in Sources */,
+				44D132F122F66A2600EE9E44 /* RotationTransitioningAnimator.swift in Sources */,
 				4419CDE022CB3700001FEAAA /* GroupsController.swift in Sources */,
 				449DBBFF22CFF4FF00E5FD96 /* Group.swift in Sources */,
 				4419CDDE22CB35B7001FEAAA /* FriendsController.swift in Sources */,
