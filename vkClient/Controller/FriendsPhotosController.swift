@@ -67,7 +67,7 @@ class FriendsPhotosController: UICollectionViewController {
         return photosNames.count
     }
     
-    // MARK: TableViewDelegate methods
+    // MARK: CollectionViewDelegate methods
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
