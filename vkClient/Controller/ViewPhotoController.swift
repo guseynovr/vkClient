@@ -94,8 +94,7 @@ class ViewPhotoController: UIViewController {
             })
         }, completion: { _ in
             self.imageView.transform = .identity
-            self.rightImageView.transform = .identity
-            self.leftImageView.transform = .identity
+            newImageView.transform = .identity
             self.selectedImageId = newIndex
             self.setImages()
             self.rightImageView.isHidden = true
