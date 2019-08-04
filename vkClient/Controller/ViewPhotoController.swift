@@ -19,7 +19,7 @@ class ViewPhotoController: UIViewController {
 
     var selectedImageId: Int!
     var userPhotosNames: [String]!
-//    private var animator: UIViewPropertyAnimator!
+    private var animator: UIViewPropertyAnimator!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +27,20 @@ class ViewPhotoController: UIViewController {
         view.bringSubviewToFront(loadingIndicator)
         tabBarController?.tabBar.isHidden = true
         loadingIndicator.isHidden = true
+        
         leftImageView.isHidden = true
         rightImageView.isHidden = true
         
         setImages()
         
-        let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(onPan(_:)))
-        leftSwipeGesture.direction = .left
-        let rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(onPan(_:)))
-        imageView.addGestureRecognizer(leftSwipeGesture)
-        imageView.addGestureRecognizer(rightSwipeGesture)
+//        let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
+//        leftSwipeGesture.direction = .left
+//        let rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
+//        rightSwipeGesture.direction = .right
+//        imageView.addGestureRecognizer(leftSwipeGesture)
+//        imageView.addGestureRecognizer(rightSwipeGesture)
         
-//        imageView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(onPan(_:))))
+        imageView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(onPan(_:))))
     }
     
     fileprivate func setImages() {
@@ -55,58 +57,75 @@ class ViewPhotoController: UIViewController {
         }
     }
     
-    fileprivate func updateComplementaryImages() {
-        
-    }
-    
-    @objc func onPan(_ recognizer: UISwipeGestureRecognizer) {
-        
-        var newIndex: Int = selectedImageId
-        switch recognizer.direction {
-        case .left:
-            newIndex += 1
-        case .right:
-            newIndex -= 1
-        case .up, .down:
-            print("Go to previous screen")
+    @objc func onPan(_ recognizer: UIPanGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+//            let isMovingRight = recognizer.translation(in: imageView).x > 0
+            let isMovingRight = recognizer.velocity(in: imageView).x > 0
+            let newIndex = selectedImageId + (isMovingRight ? -1 : 1)
+            guard userPhotosNames.indices.contains(newIndex) else { return }
+            
+            let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
+            let x = (isMovingRight ? 1 : -1) * self.imageView.bounds.width
+            print(x)
+            let translation = CGAffineTransform(translationX: x, y: 0)
+            let scaledTranslation = scale.concatenating(translation)
+          
+            let newImageView: UIImageView = isMovingRight ? leftImageView : rightImageView
+            newImageView.isHidden = false
+            
+            animator = UIViewPropertyAnimator(duration: 1, curve: .easeInOut, animations: {
+                self.imageView.transform = translation
+                newImageView.transform = translation
+            })
+            
+//            animator = UIViewPropertyAnimator(duration: 2, curve: .easeInOut, animations: {
+//                UIView.animateKeyframes(withDuration: 0.7, delay: 0, options: [.calculationModeCubic, .allowUserInteraction], animations: {
+//                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4, animations: {
+//                        self.imageView.transform = scale
+//                    })
+//                    UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8, animations: {
+//                        self.imageView.transform = translation
+//                        newImageView.transform = translation
+//                    })
+//                }, completion: nil)
+//                { _ in
+//                    self.imageView.transform = .identity
+//                    newImageView.transform = .identity
+//                    self.selectedImageId = newIndex
+//                    self.setImages()
+//                    newImageView.isHidden = true
+//                })
+//            })
+            
+            animator.addCompletion { (position) in
+                if position == .end {
+                    self.imageView.transform = .identity
+                    newImageView.transform = .identity
+                    self.selectedImageId = newIndex
+                    self.setImages()
+                    newImageView.isHidden = true
+                }
+            }
+            
+            animator.pauseAnimation()
+            
+        case .changed:
+            let progress = recognizer.translation(in: imageView).x / imageView.bounds.width
+            animator.fractionComplete = progress
+            
+        case .ended:
+            animator.continueAnimation(withTimingParameters: .none, durationFactor: 0.3)
+
         default:
             break
         }
-
-        guard userPhotosNames.indices.contains(newIndex) else { return }
-
-        rightImageView.isHidden = false
-        leftImageView.isHidden = false
-
-        let newImageView: UIImageView = recognizer.direction == .left ? rightImageView : leftImageView
-
-        let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        let transition = CGAffineTransform(translationX: (recognizer.direction == .left ? -1 : 1) * self.imageView.bounds.width, y: 0)
-        let scaledTransition = scale.concatenating(transition)
-
-        UIView.animateKeyframes(withDuration: 0.7, delay: 0, options: [.calculationModeCubic, .allowUserInteraction], animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4, animations: {
-                self.imageView.transform = scale
-            })
-            UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8, animations: {
-                self.imageView.transform = scaledTransition
-                newImageView.transform = transition
-            })
-        }, completion: { _ in
-            self.imageView.transform = .identity
-            newImageView.transform = .identity
-            self.selectedImageId = newIndex
-            self.setImages()
-            self.rightImageView.isHidden = true
-            self.leftImageView.isHidden = true
-        })
         
-//        let isMovingRight = recognizer.translation(in: imageView).x > 0 ? true : false
+//        let isMovingRight = recognizer.translation(in: imageView).x > 0
 //
 //        switch recognizer.state {
 //        case.began:
-//            leftImageView.isHidden = false
-//            rightImageView.isHidden = false
+//
 //
 //            let newIndex = selectedImageId + (isMovingRight ? -1 : 1)
 //
@@ -116,7 +135,7 @@ class ViewPhotoController: UIViewController {
 //            let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
 //            let transition = CGAffineTransform(translationX: (isMovingRight ? 1 : -1) * self.imageView.bounds.width, y: 0)
 //            let scaledTransition = scale.concatenating(transition)
-// 
+//
 //            animator = UIViewPropertyAnimator(duration: 1, curve: .easeInOut) {
 //                self.imageView.transform = scale
 //            }
@@ -149,6 +168,49 @@ class ViewPhotoController: UIViewController {
 //        default:
 //            break
 //        }
+    }
+    
+    @objc func onSwipe(_ recognizer: UISwipeGestureRecognizer) {
+        
+        var newIndex: Int = selectedImageId
+        switch recognizer.direction {
+        case .left:
+            newIndex += 1
+        case .right:
+            newIndex -= 1
+        case .up, .down:
+            print("Go to previous screen")
+        default:
+            break
+        }
+
+        guard userPhotosNames.indices.contains(newIndex) else { return }
+
+        rightImageView.isHidden = false
+        leftImageView.isHidden = false
+
+        let newImageView: UIImageView = recognizer.direction == .left ? rightImageView : leftImageView
+
+        let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        let translation = CGAffineTransform(translationX: (recognizer.direction == .left ? -1 : 1) * self.imageView.bounds.width, y: 0)
+        let scaledTranslation = scale.concatenating(translation)
+
+        UIView.animateKeyframes(withDuration: 0.7, delay: 0, options: [.calculationModeCubic, .allowUserInteraction], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4, animations: {
+                self.imageView.transform = scale
+            })
+            UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8, animations: {
+                self.imageView.transform = scaledTranslation
+                newImageView.transform = translation
+            })
+        }, completion: { _ in
+            self.imageView.transform = .identity
+            newImageView.transform = .identity
+            self.selectedImageId = newIndex
+            self.setImages()
+            self.rightImageView.isHidden = true
+            self.leftImageView.isHidden = true
+        })
     }
 
     

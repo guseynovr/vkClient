@@ -33,7 +33,7 @@ class RotationOverTransitioningAnimator: NSObject, UIViewControllerAnimatedTrans
         UIView.animate(withDuration: animationDuration, animations: {
             destination.view.transform = .identity
         }) { completed in
-            transitionContext.completeTransition(completed)
+            transitionContext.completeTransition(completed && !transitionContext.transitionWasCancelled)
             destination.view.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             destination.view.layer.position = originalPosition
         }
@@ -65,7 +65,7 @@ class RotationOffTransitioningAnimator: NSObject, UIViewControllerAnimatedTransi
         UIView.animate(withDuration: animationDuration, animations: {
             source.view.transform = CGAffineTransform(rotationAngle: -CGFloat.pi/2)
         }) { completed in
-            transitionContext.completeTransition(completed)
+            transitionContext.completeTransition(completed && !transitionContext.transitionWasCancelled)
             source.view.transform = .identity
             source.view.layer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
             source.view.layer.position = originalPosition
