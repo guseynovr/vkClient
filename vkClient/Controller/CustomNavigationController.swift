@@ -51,7 +51,7 @@ class CustomNavigationController: UINavigationController {
         case .ended:
             interactiveTransition.hasStarted = false
             interactiveTransition.shouldFinish ? interactiveTransition.finish() : interactiveTransition.cancel()
-            
+
         case .cancelled:
             interactiveTransition.hasStarted = false
             interactiveTransition.cancel()
