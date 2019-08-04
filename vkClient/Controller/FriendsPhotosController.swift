@@ -17,6 +17,11 @@ class FriendsPhotosController: UICollectionViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         tabBarController?.tabBar.isHidden = false
     }
     
@@ -79,7 +84,8 @@ class FriendsPhotosController: UICollectionViewController {
             guard collectionView.indexPathsForSelectedItems?.count == 1 else { return }
             let selectedRow = collectionView.indexPathsForSelectedItems![0].row
             
-            destinationVC.imageAssetName = photosNames[selectedRow]
+            destinationVC.selectedImageId = selectedRow
+            destinationVC.userPhotosNames = photosNames
         }
     }
 }

@@ -10,8 +10,8 @@ import UIKit
 
 class LikeControl: UIStackView {
     
-    private var imageView: UIImageView!
-    private var countLabel: UILabel!
+    private var imageView = UIImageView()
+    private var countLabel = UILabel()
     
     private var isLiked = false { didSet { likeCount += isLiked ? 1 : -1 } }
     var likeCount = 999 { didSet { updateAppearance() } }
@@ -27,9 +27,7 @@ class LikeControl: UIStackView {
         
         heightAnchor.constraint(equalToConstant: 28).isActive = true
         
-        imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        countLabel = UILabel()
         countLabel.font = .systemFont(ofSize: 15)
 
         updateAppearance()

@@ -62,7 +62,11 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
+                                                <outlet property="bottomConstraint" destination="saT-j5-EvG" id="Aaf-tw-gaw"/>
                                                 <outlet property="imageView" destination="Vts-Ty-3vW" id="KwE-va-iYI"/>
+                                                <outlet property="leadingConstraint" destination="ywl-Ee-qw9" id="y6O-Vw-RHY"/>
+                                                <outlet property="topConstraint" destination="M2a-pm-goQ" id="vP3-7R-gZe"/>
+                                                <outlet property="trailingConstraint" destination="lsT-03-nZD" id="BMY-ey-ADz"/>
                                             </connections>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="599-zw-NDM">
@@ -161,7 +165,11 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
+                                                <outlet property="bottomConstraint" destination="aCt-xX-lbi" id="L3h-aF-7OT"/>
                                                 <outlet property="imageView" destination="TsA-6Y-90E" id="K4P-Xe-PY9"/>
+                                                <outlet property="leadingConstraint" destination="Dpv-3o-O5t" id="D5H-Fk-Rbj"/>
+                                                <outlet property="topConstraint" destination="2fI-r7-LmU" id="BHa-V7-EjG"/>
+                                                <outlet property="trailingConstraint" destination="xqJ-li-YwC" id="6Np-M0-6j4"/>
                                             </connections>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJt-8k-Zpm">
