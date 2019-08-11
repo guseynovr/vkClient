@@ -17,8 +17,8 @@ class ViewPhotoController: UIViewController {
     
     var isZoomed = false
 
-    var selectedImageId: Int!
-    var userPhotosNames: [String]!
+    var selectedImageId = 0
+    var userPhotosNames = [String]()
     private var animator: UIViewPropertyAnimator!
 
     override func viewDidLoad() {
@@ -27,6 +27,7 @@ class ViewPhotoController: UIViewController {
         view.bringSubviewToFront(loadingIndicator)
         tabBarController?.tabBar.isHidden = true
         loadingIndicator.isHidden = true
+        title = "\(selectedImageId + 1) of \(userPhotosNames.count)"
         
         leftImageView.isHidden = true
         rightImageView.isHidden = true
@@ -40,7 +41,11 @@ class ViewPhotoController: UIViewController {
 //        imageView.addGestureRecognizer(leftSwipeGesture)
 //        imageView.addGestureRecognizer(rightSwipeGesture)
         
-        imageView.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(onPan(_:))))
+        let panGR = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
+        panGR.delegate = self
+        imageView.addGestureRecognizer(panGR)
+        
+        setupAnimator()
     }
     
     fileprivate func setImages() {
@@ -57,117 +62,55 @@ class ViewPhotoController: UIViewController {
         }
     }
     
-    @objc func onPan(_ recognizer: UIPanGestureRecognizer) {
-        switch recognizer.state {
-        case .began:
-//            let isMovingRight = recognizer.translation(in: imageView).x > 0
-            let isMovingRight = recognizer.velocity(in: imageView).x > 0
-            let newIndex = selectedImageId + (isMovingRight ? -1 : 1)
-            guard userPhotosNames.indices.contains(newIndex) else { return }
-            
-            let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
-            let x = (isMovingRight ? 1 : -1) * self.imageView.bounds.width
-            print(x)
-            let translation = CGAffineTransform(translationX: x, y: 0)
-            let scaledTranslation = scale.concatenating(translation)
-          
-            let newImageView: UIImageView = isMovingRight ? leftImageView : rightImageView
-            newImageView.isHidden = false
-            
-            animator = UIViewPropertyAnimator(duration: 1, curve: .easeInOut, animations: {
-                self.imageView.transform = translation
-                newImageView.transform = translation
+    private func setupAnimator() {
+        animator = UIViewPropertyAnimator()
+        
+        let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        let transition = CGAffineTransform(translationX: -self.imageView.bounds.width, y: 0)
+        let scaledTransition = scale.concatenating(transition)
+        
+        animator?.addAnimations {
+            self.rightImageView.isHidden = false
+            self.leftImageView.isHidden = false
+            UIView.animateKeyframes(withDuration: 0.7, delay: 0, options: [.calculationModeCubic, .allowUserInteraction], animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4, animations: {
+                    self.imageView.transform = scale
+                })
+                UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8, animations: {
+                    self.imageView.transform = scaledTransition
+                    self.rightImageView.transform = transition
+                })
             })
+        }
+        animator?.addCompletion { position in
+            guard position == .end else { return }
             
-//            animator = UIViewPropertyAnimator(duration: 2, curve: .easeInOut, animations: {
-//                UIView.animateKeyframes(withDuration: 0.7, delay: 0, options: [.calculationModeCubic, .allowUserInteraction], animations: {
-//                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4, animations: {
-//                        self.imageView.transform = scale
-//                    })
-//                    UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8, animations: {
-//                        self.imageView.transform = translation
-//                        newImageView.transform = translation
-//                    })
-//                }, completion: nil)
-//                { _ in
-//                    self.imageView.transform = .identity
-//                    newImageView.transform = .identity
-//                    self.selectedImageId = newIndex
-//                    self.setImages()
-//                    newImageView.isHidden = true
-//                })
-//            })
-            
-            animator.addCompletion { (position) in
-                if position == .end {
-                    self.imageView.transform = .identity
-                    newImageView.transform = .identity
-                    self.selectedImageId = newIndex
-                    self.setImages()
-                    newImageView.isHidden = true
-                }
-            }
-            
-            animator.pauseAnimation()
-            
+            self.imageView.transform = .identity
+            self.rightImageView.transform = .identity
+            self.leftImageView.transform = .identity
+            self.selectedImageId += 1
+            self.setImages()
+            self.rightImageView.isHidden = true
+            self.leftImageView.isHidden = true
+            self.setupAnimator()
+        }
+    }
+    
+    @objc func onPan(_ recognizer: UIPanGestureRecognizer) {
+        guard recognizer.translation(in: imageView).x < 0 else { return }
+        
+        switch recognizer.state {
         case .changed:
-            let progress = recognizer.translation(in: imageView).x / imageView.bounds.width
-            animator.fractionComplete = progress
+            let translation = recognizer.translation(in: imageView)
+            let percent = translation.x / -200
+            let animationPercent = min(1, max(0, percent))
+            animator?.fractionComplete = animationPercent
             
         case .ended:
-            animator.continueAnimation(withTimingParameters: .none, durationFactor: 0.3)
-
+            animator?.continueAnimation(withTimingParameters: nil, durationFactor: 0.3)
         default:
             break
         }
-        
-//        let isMovingRight = recognizer.translation(in: imageView).x > 0
-//
-//        switch recognizer.state {
-//        case.began:
-//
-//
-//            let newIndex = selectedImageId + (isMovingRight ? -1 : 1)
-//
-//            guard userPhotosNames.indices.contains(newIndex) else { return }
-//
-//            let newImageView: UIImageView = isMovingRight ? leftImageView : rightImageView
-//            let scale = CGAffineTransform(scaleX: 0.8, y: 0.8)
-//            let transition = CGAffineTransform(translationX: (isMovingRight ? 1 : -1) * self.imageView.bounds.width, y: 0)
-//            let scaledTransition = scale.concatenating(transition)
-//
-//            animator = UIViewPropertyAnimator(duration: 1, curve: .easeInOut) {
-//                self.imageView.transform = scale
-//            }
-//            animator.addAnimations({
-//                self.imageView.transform = scaledTransition
-//                newImageView.transform = transition
-//            }, delayFactor: 1)
-//
-//            animator.addCompletion { (position) in
-//                guard position == .end else { return }
-//
-//                self.imageView.transform = .identity
-//                self.rightImageView.transform = .identity
-//                self.leftImageView.transform = .identity
-//                self.selectedImageId = newIndex
-//                self.setImages()
-//                self.rightImageView.isHidden = true
-//                self.leftImageView.isHidden = true
-//            }
-//
-//            animator.pauseAnimation()
-//        case .changed:
-//            let translation = recognizer.translation(in: imageView)
-//            let percent = translation.x / (isMovingRight ? 100 : -100)
-//            let animationPercent = min(1, max(0, percent))
-//            animator.fractionComplete = animationPercent
-//
-//        case .ended:
-//            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0.4)
-//        default:
-//            break
-//        }
     }
     
     @objc func onSwipe(_ recognizer: UISwipeGestureRecognizer) {
@@ -224,5 +167,11 @@ class ViewPhotoController: UIViewController {
                 self.imageView.transform = .identity
             }
         }
+    }
+}
+
+extension ViewPhotoController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }

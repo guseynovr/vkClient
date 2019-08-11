@@ -10,6 +10,7 @@
 		4419CDDE22CB35B7001FEAAA /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4419CDDD22CB35B7001FEAAA /* FriendsController.swift */; };
 		4419CDE022CB3700001FEAAA /* GroupsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4419CDDF22CB3700001FEAAA /* GroupsController.swift */; };
 		4419CDE222CB4059001FEAAA /* FriendsPhotosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4419CDE122CB4059001FEAAA /* FriendsPhotosController.swift */; };
+		443CFEF2230045CB004E5186 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443CFEF1230045CB004E5186 /* Session.swift */; };
 		44462CD722D1442D00F4C1AF /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44462CD622D1442D00F4C1AF /* FriendCell.swift */; };
 		44462CD922D1446B00F4C1AF /* FriendPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44462CD822D1446B00F4C1AF /* FriendPhotoCell.swift */; };
 		44462CDD22D144DF00F4C1AF /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44462CDC22D144DF00F4C1AF /* GroupCell.swift */; };
@@ -43,6 +44,7 @@
 		4419CDDD22CB35B7001FEAAA /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
 		4419CDDF22CB3700001FEAAA /* GroupsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsController.swift; sourceTree = "<group>"; };
 		4419CDE122CB4059001FEAAA /* FriendsPhotosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotosController.swift; sourceTree = "<group>"; };
+		443CFEF1230045CB004E5186 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		44462CD622D1442D00F4C1AF /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		44462CD822D1446B00F4C1AF /* FriendPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPhotoCell.swift; sourceTree = "<group>"; };
 		44462CDC22D144DF00F4C1AF /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 		44EE03BF22CFF48600029D16 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				443CFEF1230045CB004E5186 /* Session.swift */,
 				44B57DB422E8A48700B8C387 /* Post.swift */,
 				449DBBFC22CFF4F800E5FD96 /* User.swift */,
 				449DBBFE22CFF4FF00E5FD96 /* Group.swift */,
@@ -310,6 +313,7 @@
 				4419CDDE22CB35B7001FEAAA /* FriendsController.swift in Sources */,
 				44BA069222DF29B900C3BF30 /* AlphabetNavigationControl.swift in Sources */,
 				44D3E92922C65EFF003D8586 /* AppDelegate.swift in Sources */,
+				443CFEF2230045CB004E5186 /* Session.swift in Sources */,
 				4419CDE222CB4059001FEAAA /* FriendsPhotosController.swift in Sources */,
 				449DBBFD22CFF4F800E5FD96 /* User.swift in Sources */,
 				446A340A22E9F00000C44261 /* ShareButton.swift in Sources */,
