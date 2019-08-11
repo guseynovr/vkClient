@@ -34,18 +34,18 @@ class ViewPhotoController: UIViewController {
         
         setImages()
         
-//        let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
-//        leftSwipeGesture.direction = .left
-//        let rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
-//        rightSwipeGesture.direction = .right
-//        imageView.addGestureRecognizer(leftSwipeGesture)
-//        imageView.addGestureRecognizer(rightSwipeGesture)
+        let leftSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
+        leftSwipeGesture.direction = .left
+        let rightSwipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(onSwipe(_:)))
+        rightSwipeGesture.direction = .right
+        imageView.addGestureRecognizer(leftSwipeGesture)
+        imageView.addGestureRecognizer(rightSwipeGesture)
         
-        let panGR = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
-        panGR.delegate = self
-        imageView.addGestureRecognizer(panGR)
+//        let panGR = UIPanGestureRecognizer(target: self, action: #selector(onPan(_:)))
+//        panGR.delegate = self
+//        imageView.addGestureRecognizer(panGR)
         
-        setupAnimator()
+//        setupAnimator()
     }
     
     fileprivate func setImages() {
